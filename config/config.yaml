@@ -1,6 +1,7 @@
 llm:
-  provider: gemini              # or "openai"
-  model: gemini-1.5-flash
+  provider: groq                # Groq inference API (OpenAI-compatible)
+  model: qwen/qwen3.6-27b      # or "openai/gpt-oss-120b"
+  base_url: https://api.groq.com/openai/v1
   temperature: 0.4
   max_tokens: 1024
 

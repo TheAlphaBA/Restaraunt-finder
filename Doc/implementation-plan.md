@@ -382,9 +382,20 @@ def test_empty_results_fallback():
 
 ## Phase 4 — LLM Integration & Prompt Engineering
 
-**Goal:** Construct an optimized prompt from filtered restaurant data and user preferences, call the LLM, and return structured ranked recommendations.
+**Goal:** Construct an optimized prompt from filtered restaurant data and user preferences, call the LLM via **Groq** (OpenAI-compatible API), and return structured ranked recommendations.
 
 **Duration:** Day 6–8
+
+**LLM Provider:** [Groq](https://groq.com/) — ultra-fast inference API with OpenAI-compatible endpoint.
+
+**Supported Models (pick one):**
+- `openai/gpt-oss-120b` — large-scale open-source GPT model
+- `qwen/qwen3.6-27b` — Alibaba's Qwen 3.6 27B model
+
+**API Details:**
+- Base URL: `https://api.groq.com/openai/v1`
+- Auth: `GROQ_API_KEY` in `.env`
+- SDK: `openai` Python package (already installed) with custom `base_url`
 
 ---
 
@@ -393,7 +404,7 @@ def test_empty_results_fallback():
 Build a system + user prompt from the `UserPreferences` and filtered DataFrame:
 
 ```python
-def build_prompt(prefs: UserPreferences, candidates: pd.DataFrame) -> str:
+def build_prompt(prefs: UserPreferences, candidates: pd.DataFrame) -> tuple:
 
     restaurant_list = "\n".join([
         f"{i+1}. Restaurant: {row['name']} | "
@@ -433,29 +444,30 @@ Rank the top 5 restaurants and explain why each one fits the user's needs.
 
 ### 4.2 LLM Client — `app/llm_client.py`
 
-Wrap the LLM API call with retry logic and error handling:
+Use the **OpenAI Python SDK** with Groq's compatible endpoint:
 
 ```python
-import google.generativeai as genai
-import time, json
+from openai import OpenAI
+import time, json, os
 
 def call_llm(system_prompt: str, user_prompt: str, config: dict) -> dict:
-    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-    model = genai.GenerativeModel(
-        model_name=config["llm"]["model"],
-        system_instruction=system_prompt
+    client = OpenAI(
+        api_key=os.getenv("GROQ_API_KEY"),
+        base_url="https://api.groq.com/openai/v1"
     )
 
     for attempt in range(3):
         try:
-            response = model.generate_content(
-                user_prompt,
-                generation_config=genai.types.GenerationConfig(
-                    temperature=config["llm"]["temperature"],
-                    max_output_tokens=config["llm"]["max_tokens"]
-                )
+            response = client.chat.completions.create(
+                model=config["llm"]["model"],
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
+                temperature=config["llm"]["temperature"],
+                max_tokens=config["llm"]["max_tokens"]
             )
-            return json.loads(response.text)
+            return json.loads(response.choices[0].message.content)
         except Exception as e:
             if attempt < 2:
                 time.sleep(2 ** attempt)   # Exponential backoff
@@ -511,7 +523,7 @@ Test and iterate on prompt quality:
 
 **✅ Phase 4 Deliverables:**
 - [ ] `prompt_builder.py` — constructs system + user prompts
-- [ ] `llm_client.py` — Gemini API wrapper with retry + backoff
+- [ ] `llm_client.py` — Groq API wrapper (OpenAI-compatible) with retry + backoff
 - [ ] `output_formatter.py` — JSON parser + regex fallback
 - [ ] Prompt iterated to v4 with consistent JSON output
 - [ ] Unit tests for prompt builder and output formatter
