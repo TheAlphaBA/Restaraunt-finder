@@ -1,0 +1,15 @@
+llm:
+  provider: gemini              # or "openai"
+  model: gemini-1.5-flash
+  temperature: 0.4
+  max_tokens: 1024
+
+data:
+  dataset_name: ManikaSaini/zomato-restaurant-recommendation
+  max_candidates: 15            # Max restaurants to pass to LLM
+  cache_dir: .cache/
+
+budget_ranges:
+  low:    [0, 300]
+  medium: [300, 700]
+  high:   [700, 9999]

@@ -1,0 +1,10 @@
+datasets
+pandas
+numpy
+python-dotenv
+pyyaml
+streamlit
+pytest
+google-generativeai
+openai
+langchain
