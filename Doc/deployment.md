@@ -58,7 +58,7 @@ The Next.js frontend is prepared in the [`frontend/`](./frontend/) directory.
    - **Root Directory**: Click *Edit* and select **`frontend`** 👈 *(CRITICAL)*
 5. Under **Environment Variables**, add:
    - **Name**: `NEXT_PUBLIC_API_URL`
-   - **Value**: `https://<your-railway-domain>.up.railway.app` *(Your Railway domain from Step 1)*
+   - **Value**: `https://<your-railway-domain>.up.railway.app` *(Domain only — do **NOT** append `/health` or `/api`)*
 6. Click **"Deploy"**.
 
 ---

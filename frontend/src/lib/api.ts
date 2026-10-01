@@ -36,7 +36,13 @@ function getApiBaseUrl(): string {
   if (!url.startsWith("http://") && !url.startsWith("https://")) {
     url = `https://${url}`;
   }
-  return url.replace(/\/+$/, "");
+  try {
+    const parsed = new URL(url);
+    // Extract base origin (e.g. strips /health, /api, query params, trailing slashes)
+    return parsed.origin;
+  } catch {
+    return url.replace(/\/+$/, "");
+  }
 }
 
 const API_BASE = getApiBaseUrl();
