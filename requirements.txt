@@ -1,5 +1,6 @@
 datasets
 pandas
+pyarrow
 numpy
 python-dotenv
 pyyaml

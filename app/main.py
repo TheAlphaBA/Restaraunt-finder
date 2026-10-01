@@ -532,10 +532,17 @@ section[data-testid="stSidebar"] label {
 @st.cache_data(show_spinner="Loading & preprocessing Zomato dataset…")
 def get_data():
     """Load and preprocess the Zomato dataset. Cached across reruns."""
+    parquet_path = config["data"].get("local_parquet")
+    if parquet_path and not os.path.isabs(parquet_path):
+        parquet_path = os.path.join(PROJECT_ROOT, parquet_path)
+
     df_raw = load_zomato_data(
         config["data"]["dataset_name"],
         config["data"]["cache_dir"],
+        local_parquet=parquet_path,
     )
+    if "location_norm" in df_raw.columns and "budget_level" in df_raw.columns:
+        return df_raw
     return preprocess(df_raw, config["budget_ranges"])
 
 

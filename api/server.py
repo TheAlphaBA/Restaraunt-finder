@@ -56,12 +56,21 @@ async def lifespan(app: FastAPI):
     """Pre-load and preprocess the Zomato dataset on server startup."""
     logger.info("Loading Zomato dataset on startup...")
     try:
+        parquet_path = config["data"].get("local_parquet")
+        if parquet_path and not os.path.isabs(parquet_path):
+            parquet_path = os.path.join(PROJECT_ROOT, parquet_path)
+
         raw_df = load_zomato_data(
             config["data"]["dataset_name"],
             config["data"]["cache_dir"],
+            local_parquet=parquet_path,
         )
-        dataset_cache["df"] = preprocess(raw_df, config["budget_ranges"])
-        logger.info(f"Dataset loaded: {len(dataset_cache['df'])} restaurants ready")
+        if "location_norm" in raw_df.columns and "budget_level" in raw_df.columns:
+            dataset_cache["df"] = raw_df
+        else:
+            dataset_cache["df"] = preprocess(raw_df, config["budget_ranges"])
+
+        logger.info(f"Dataset ready: {len(dataset_cache['df'])} restaurants loaded")
     except Exception as e:
         logger.error(f"Failed to load dataset on startup: {e}")
     yield

@@ -7,6 +7,7 @@ llm:
 
 data:
   dataset_name: ManikaSaini/zomato-restaurant-recommendation
+  local_parquet: data/restaurants.parquet
   max_candidates: 15            # Max restaurants to pass to LLM
   cache_dir: .cache/
 

@@ -1,6 +1,7 @@
 # requirements-api.txt — Backend API dependencies (Railway)
 datasets
 pandas
+pyarrow
 numpy
 python-dotenv
 pyyaml
