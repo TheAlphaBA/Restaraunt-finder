@@ -89,21 +89,10 @@ app = FastAPI(
 )
 
 # CORS — allow Vercel frontend, preview domains, and local dev
-FRONTEND_URL = os.getenv("FRONTEND_URL", "").strip().rstrip("/")
-allowed_origins = [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://restaraunt-finder.vercel.app",
-    "https://restaraunt-finder.vercel.app/",
-]
-if FRONTEND_URL:
-    allowed_origins.extend([FRONTEND_URL, f"{FRONTEND_URL}/"])
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"] if not FRONTEND_URL else allowed_origins,
-    allow_origin_regex=r"https://.*\.vercel\.app",
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
