@@ -762,12 +762,13 @@ Include in `README.md`:
 ---
 
 **✅ Phase 6 Deliverables:**
-- [ ] All unit tests written and passing (`pytest`)
-- [ ] Integration test with mocked LLM
-- [ ] Error handling hardened across all layers
-- [ ] `README.md` with setup and usage instructions
-- [ ] App deployed to Streamlit Cloud (or Docker)
-- [ ] Public demo URL documented
+- [x] All unit tests written and passing (`pytest`)
+- [x] Integration test with mocked LLM
+- [x] Error handling hardened across all layers
+- [x] `README.md` with setup and usage instructions
+- [x] Backend API deployed on Railway (`api/server.py` + Dockerfile)
+- [x] Frontend UI deployed on Vercel (`frontend/` Next.js App)
+- [x] Step-by-step deployment guide created in `Doc/deployment.md`
 
 ---
 
