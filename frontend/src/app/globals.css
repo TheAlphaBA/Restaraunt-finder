@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #FFF7FF;
+    --bg-card: #FFFFFF;
+    --bg-sidebar: #FBF0FF;
+    --accent-primary: #F472B6;
+    --accent-secondary: #D0BEF2;
+    --text-primary: #201828;
+    --text-muted: #534471;
+    --border-color: #E4D9F7;
+  }
+}
+
+body {
+  background: linear-gradient(135deg, #FFF7FF 0%, #FDF0FA 50%, #F5ECFF 100%);
+  color: #201828;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  min-height: 100vh;
+}
+
+/* Glassmorphic Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(228, 217, 247, 0.7);
+  box-shadow: 0 10px 30px -10px rgba(107, 92, 138, 0.1);
+}
+
+.glass-card:hover {
+  box-shadow: 0 14px 35px -8px rgba(244, 114, 182, 0.18);
+  border-color: rgba(244, 114, 182, 0.4);
+}
+
+/* Hero Gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, #E8D5F5 0%, #FDE8F0 45%, #F7E9FF 100%);
+  border: 1px solid rgba(228, 217, 247, 0.8);
+}
+
+/* Button Gradient */
+.btn-rose {
+  background: linear-gradient(135deg, #F472B6 0%, #E879A0 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(244, 114, 182, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-rose:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(244, 114, 182, 0.5);
+  filter: brightness(1.05);
+}
