@@ -88,15 +88,21 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS — allow Vercel frontend and local dev
-FRONTEND_URL = os.getenv("FRONTEND_URL", "")
+# CORS — allow Vercel frontend, preview domains, and local dev
+FRONTEND_URL = os.getenv("FRONTEND_URL", "").strip().rstrip("/")
+allowed_origins = [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://restaraunt-finder.vercel.app",
+    "https://restaraunt-finder.vercel.app/",
+]
+if FRONTEND_URL:
+    allowed_origins.extend([FRONTEND_URL, f"{FRONTEND_URL}/"])
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",           # Local Next.js dev
-        "http://localhost:5173",           # Local Vite dev
-        FRONTEND_URL,                     # Production Vercel URL (set via env var)
-    ],
+    allow_origins=["*"] if not FRONTEND_URL else allowed_origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

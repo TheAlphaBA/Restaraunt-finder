@@ -35,12 +35,20 @@ export default function Home() {
 
   useEffect(() => {
     async function loadDropdowns() {
-      const locs = await fetchLocations();
-      setLocations(locs);
-      if (locs.length > 0) setSelectedLocation(locs[0]);
+      try {
+        const locs = await fetchLocations();
+        setLocations(locs);
+        if (locs.length > 0) setSelectedLocation(locs[0]);
 
-      const cuis = await fetchCuisines();
-      setCuisines(cuis);
+        const cuis = await fetchCuisines();
+        setCuisines(cuis);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(`Backend Connection Error: ${err.message}. Could not load location list.`);
+        } else {
+          setError("Failed to load location data from backend.");
+        }
+      }
     }
     loadDropdowns();
   }, []);

@@ -27,26 +27,40 @@ export interface RecommendationResponse {
   };
 }
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+function getApiBaseUrl(): string {
+  let url = process.env.NEXT_PUBLIC_API_URL;
+  if (!url || !url.trim()) {
+    return "https://restaraunt-finder-production.up.railway.app";
+  }
+  url = url.trim();
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+    url = `https://${url}`;
+  }
+  return url.replace(/\/+$/, "");
+}
+
+const API_BASE = getApiBaseUrl();
 
 export async function fetchLocations(): Promise<string[]> {
   try {
     const res = await fetch(`${API_BASE}/api/locations`);
-    if (!res.ok) return [];
+    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
     const data = await res.json();
     return data.locations || [];
-  } catch {
-    return [];
+  } catch (err) {
+    console.error("Failed to fetch locations from backend:", err, "API_BASE:", API_BASE);
+    throw err;
   }
 }
 
 export async function fetchCuisines(): Promise<string[]> {
   try {
     const res = await fetch(`${API_BASE}/api/cuisines`);
-    if (!res.ok) return [];
+    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
     const data = await res.json();
     return data.cuisines || [];
-  } catch {
+  } catch (err) {
+    console.error("Failed to fetch cuisines from backend:", err, "API_BASE:", API_BASE);
     return [];
   }
 }
