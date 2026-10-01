@@ -1,5 +1,3 @@
 """
-Tests for the Filter Engine module.
+Test suite for the AI-Powered Restaurant Recommendation System.
 """
-
-# TODO: Implement in Phase 3/6

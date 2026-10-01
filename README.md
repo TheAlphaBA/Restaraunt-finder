@@ -65,10 +65,34 @@ GEMINI_API_KEY=your_gemini_api_key_here
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-### 4. Run the App
+### 4. Run the App Locally
 
 ```bash
 streamlit run app/main.py
+```
+
+## Deployment
+
+### Option A — Streamlit Cloud (Recommended)
+
+1. Push this repository to GitHub (ensure `.env` is **not** committed).
+2. Visit [share.streamlit.io](https://share.streamlit.io) and connect your GitHub repository.
+3. In the Streamlit Cloud dashboard, go to the app settings and configure your **Secrets**:
+   ```toml
+   GROQ_API_KEY = "your_key_here"
+   ```
+4. Deploy — your app will be assigned a public URL automatically.
+
+### Option B — Docker
+
+Build and run the app via Docker:
+
+```bash
+# Build the image
+docker build -t restaurant-recommender .
+
+# Run the container
+docker run -p 8501:8501 --env-file .env restaurant-recommender
 ```
 
 ## Dataset

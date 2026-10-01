@@ -1,0 +1,18 @@
+# .streamlit/config.toml
+# Avant-Garde AI Restaurant Engine — Lavender & Rose Theme
+
+[theme]
+primaryColor = "#F472B6"                  # Vibrant Berry Rose Accent
+backgroundColor = "#FFF7FF"               # Ambient Lavender Base Surface
+secondaryBackgroundColor = "#F7E9FF"      # Tinted Card Container Plane
+textColor = "#201828"                     # Deep Obsidian Purple
+font = "sans serif"
+
+[client]
+showErrorDetails = true
+toolbarMode = "viewer"
+
+[server]
+headless = true
+port = 8501
+enableCORS = false

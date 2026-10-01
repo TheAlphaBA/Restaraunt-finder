@@ -1,0 +1,11 @@
+# requirements-api.txt — Backend API dependencies (Railway)
+datasets
+pandas
+numpy
+python-dotenv
+pyyaml
+google-generativeai
+openai
+langchain
+fastapi
+uvicorn[standard]

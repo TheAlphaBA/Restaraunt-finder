@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-bright":"#fff7ff","on-primary-fixed":"#21133d","on-primary-container":"#e9dbff","on-secondary":"#ffffff","on-error-container":"#93000a","inverse-primary":"#d0bef2","secondary-fixed":"#ffd8e7","on-secondary-fixed-variant":"#85145a","tertiary-fixed-dim":"#d0bfef","surface-container-high":"#f1e3f9","primary-fixed":"#eaddff","primary":"#534471","on-tertiary-fixed-variant":"#4d4068","surface-dim":"#e3d5eb","tertiary-fixed":"#eaddff","on-tertiary-fixed":"#21143a","secondary":"#a43073","on-surface-variant":"#49454e","error":"#ba1a1a","outline":"#7a757f","secondary-container":"#fc79bd","on-background":"#201828","on-error":"#ffffff","on-primary-fixed-variant":"#4d3f6b","on-secondary-container":"#76014e","primary-fixed-dim":"#d0bef2","surface-container-low":"#fbf0ff","outline-variant":"#cbc4cf","inverse-surface":"#352d3d","inverse-on-surface":"#f9ecff","error-container":"#ffdad6","secondary-fixed-dim":"#ffafd3","surface-container":"#f7e9ff","background":"#fff7ff","tertiary-container":"#6b5d87","primary-container":"#6b5c8a","tertiary":"#53456e","on-tertiary-container":"#e9dbff","surface-variant":"#ebdef4","on-tertiary":"#ffffff","on-surface":"#201828","on-secondary-fixed":"#3d0026","surface":"#fff7ff","on-primary":"#ffffff","surface-tint":"#665784","surface-container-highest":"#ebdef4","surface-container-lowest":"#ffffff"},borderRadius:{DEFAULT:"1rem",lg:"2rem",xl:"3rem",full:"9999px"},spacing:{"margin-mobile":"1rem","space-md":"1rem",margin:"2rem","space-xl":"2.5rem","space-lg":"1.5rem","gutter-mobile":"1rem",gutter:"1.5rem","space-xs":"0.25rem","space-sm":"0.5rem"},fontFamily:{"label-md":["Hanken Grotesk"],"headline-sm":["Bricolage Grotesque"],"headline-lg":["Bricolage Grotesque"],"body-lg":["Hanken Grotesk"],"body-sm":["Hanken Grotesk"],"headline-lg-mobile":["Bricolage Grotesque"],"headline-xl-mobile":["Bricolage Grotesque"],"body-md":["Hanken Grotesk"],"headline-xl":["Bricolage Grotesque"],"label-lg":["Hanken Grotesk"],"label-sm":["Hanken Grotesk"],"headline-md":["Bricolage Grotesque"]},fontSize:{"label-md":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.02em",fontWeight:"600"}],"headline-sm":["1.25rem",{lineHeight:"1.625rem",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg":["2.5rem",{lineHeight:"2.75rem",letterSpacing:"-0.025em",fontWeight:"700"}],"body-lg":["1.125rem",{lineHeight:"1.75rem",fontWeight:"400"}],"body-sm":["0.875rem",{lineHeight:"1.25rem",fontWeight:"400"}],"headline-lg-mobile":["1.75rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-xl-mobile":["2.25rem",{lineHeight:"2.5rem",letterSpacing:"-0.02em",fontWeight:"800"}],"body-md":["1rem",{lineHeight:"1.5rem",fontWeight:"400"}],"headline-xl":["3.5rem",{lineHeight:"3.75rem",letterSpacing:"-0.03em",fontWeight:"800"}],"label-lg":["0.875rem",{lineHeight:"1.25rem",letterSpacing:"0.01em",fontWeight:"600"}],"label-sm":["0.6875rem",{lineHeight:"0.875rem",letterSpacing:"0.04em",fontWeight:"700"}],"headline-md":["1.75rem",{lineHeight:"2.125rem",letterSpacing:"-0.02em",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-surface-container-low via-surface-container to-secondary-fixed/40 backdrop-blur-xl shadow-[0_1px_16px_rgba(107,92,138,0.08)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-gutter"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm bg-gradient-to-r from-primary via-secondary to-secondary-container bg-clip-text text-transparent">🍽️ AI Restaurant Recommender</span><span class="font-label-sm text-label-sm text-tertiary font-medium">Powered by Zomato Data + Groq LLM</span></div><div class="hidden xl:flex items-center gap-space-sm pl-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-lowest/90 shadow-[0_2px_8px_rgba(107,92,138,0.06)]"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Groq Llama-3.3-70b Online</span></div><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-lowest/90 shadow-[0_2px_8px_rgba(107,92,138,0.06)]"><span class="w-2 h-2 rounded-full bg-primary-fixed-dim"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Zomato Dataset Loaded</span></div></div></div><nav class="hidden lg:flex items-center gap-space-xs bg-surface-container-highest/60 p-1 rounded-full" data-active-classes="bg-primary-container text-on-primary-container shadow-[0_4px_12px_rgba(107,92,138,0.15)]"><a class="px-space-md py-2 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-200" data-path="discovery-recommender" href="#">Discovery Recommender</a><a class="px-space-md py-2 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-200" data-path="taste-price-analytics" href="#">Taste &amp; Price Analytics</a><a aria-current="page" class="px-space-md py-2 rounded-full font-label-lg transition-all duration-200 bg-primary-container text-on-primary-container shadow-[0_4px_12px_rgba(107,92,138,0.15)]" data-path="streamlit-custom-css-code" href="#">Streamlit Custom CSS Code</a></nav><div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-3rem)]"><div class="flex flex-col w-full">
+<div class="w-full px-margin py-space-xl flex flex-col gap-space-xl max-w-7xl mx-auto">
+<!-- Top Action Scrim / Banner -->
+<div class="relative overflow-hidden rounded-lg bg-surface-container p-space-xl shadow-sm">
+<div class="absolute -right-20 -top-24 w-96 h-96 rounded-full bg-gradient-to-br from-secondary-container/20 to-primary-fixed/30 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-space-lg">
+<div class="flex flex-col max-w-2xl gap-space-xs">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-lowest text-secondary font-label-sm text-label-sm tracking-widest uppercase">Streamlit SDK v1.38+ Ready</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Theme Injection Specs</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Streamlit Theme &amp; Custom CSS Generator</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Production-grade CSS modules and <code class="px-space-xs py-0.5 rounded bg-surface-container-high font-mono text-sm text-primary">.streamlit/config.toml</code> definitions engineered for rapid copy-paste integration into <code class="px-space-xs py-0.5 rounded bg-surface-container-high font-mono text-sm text-primary">custom_theme.py</code>.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm shrink-0">
+<button class="group relative px-space-lg py-space-md rounded-full bg-gradient-to-r from-secondary-container to-secondary text-on-secondary font-label-lg text-label-lg shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 flex items-center justify-center gap-space-sm" id="copy-btn-main" onclick="copyFullTheme()">
+<span class="material-symbols-outlined text-base group-hover:rotate-12 transition-transform">content_copy</span>
+<span id="copy-btn-label">Copy Full custom_theme.py</span>
+</button>
+<a class="px-space-lg py-space-md rounded-full bg-surface-container-lowest text-primary font-label-lg text-label-lg hover:bg-surface-container-high transition-colors flex items-center justify-center gap-space-xs shadow-sm" href="#sandbox-preview">
+<span class="material-symbols-outlined text-base">preview</span>
+<span>Live Sandbox</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Layout Grid: Code Inspector + Architecture Card -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Interactive Code Inspector Tabs (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<!-- Tab Buttons -->
+<div class="flex items-center gap-space-xs p-1 rounded-full bg-surface-container-high">
+<button class="px-space-md py-1.5 rounded-full font-label-lg text-label-lg bg-surface-container-lowest text-primary shadow-sm transition-all duration-200 flex items-center gap-space-xs" id="tab-btn-py" onclick="switchTab('py')">
+<span class="material-symbols-outlined text-sm text-secondary">terminal</span>
+<span>custom_theme.py</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-200 flex items-center gap-space-xs" id="tab-btn-toml" onclick="switchTab('toml')">
+<span class="material-symbols-outlined text-sm text-outline">tune</span>
+<span>config.toml</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-200 flex items-center gap-space-xs" id="tab-btn-raw" onclick="switchTab('raw')">
+<span class="material-symbols-outlined text-sm text-outline">css</span>
+<span>Raw Stylesheet</span>
+</button>
+</div>
+<!-- Utility Indicator -->
+<div class="hidden sm:flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span>UTF-8 • Synthesized for st.markdown</span>
+</div>
+</div>
+<!-- Code Display Container -->
+<div class="relative rounded-lg bg-inverse-surface text-inverse-on-surface shadow-xl overflow-hidden">
+<!-- Code Topbar -->
+<div class="flex items-center justify-between px-space-lg py-space-sm bg-inverse-surface/80 border-b border-outline-variant/10">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-error/80"></div>
+<div class="w-3 h-3 rounded-full bg-secondary-container/80"></div>
+<div class="w-3 h-3 rounded-full bg-primary-fixed-dim/80"></div>
+<span class="ml-space-sm font-mono text-xs text-outline-variant" id="active-filename">app/theme/custom_theme.py</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-inverse-surface hover:bg-surface-variant/20 text-inverse-on-surface transition-colors font-label-sm text-label-sm" onclick="copyCurrentTabCode()">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+<span id="tab-copy-status">Copy Code</span>
+</button>
+</div>
+<!-- Python View -->
+<pre class="p-space-lg font-mono text-sm leading-relaxed overflow-x-auto text-on-primary-container max-h-[580px] scrollbar-none" id="view-py"><code class="block"><span class="text-secondary-fixed">import</span> streamlit <span class="text-secondary-fixed">as</span> st
+
+<span class="text-secondary-fixed">def</span> <span class="text-secondary-fixed-dim font-semibold">apply_custom_theme</span>():
+    <span class="text-outline-variant italic">"""Injects custom avant-garde Lavender-Rose styles into Streamlit app shell."""</span>
+    st.markdown(<span class="text-secondary-fixed">'''</span>
+    <span class="text-secondary-fixed">&lt;style&gt;</span>
+    <span class="text-secondary-fixed">@import</span> <span class="text-tertiary-fixed-dim">url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap')</span>;
+    
+    <span class="text-primary-fixed">html, body, [class*="css"]</span> {
+        <span class="text-tertiary-fixed">font-family</span>: <span class="text-tertiary-fixed-dim">'Poppins'</span>, sans-serif;
+        <span class="text-tertiary-fixed">color</span>: <span class="text-tertiary-fixed-dim">#201828</span>;
+        <span class="text-tertiary-fixed">background-color</span>: <span class="text-tertiary-fixed-dim">#FFF7FF</span>;
+    }
+    
+    <span class="text-outline-variant italic">/* Header Gradient Strip */</span>
+    <span class="text-primary-fixed">.main-header</span> {
+        <span class="text-tertiary-fixed">background</span>: <span class="text-tertiary-fixed-dim">linear-gradient(135deg, #F3EFFE 0%, #FDE7F3 100%)</span>;
+        <span class="text-tertiary-fixed">padding</span>: 1.75rem 2rem;
+        <span class="text-tertiary-fixed">border-radius</span>: 16px;
+        <span class="text-tertiary-fixed">box-shadow</span>: 0 4px 20px -2px rgba(107, 92, 138, 0.08);
+        <span class="text-tertiary-fixed">margin-bottom</span>: 2rem;
+    }
+    
+    <span class="text-outline-variant italic">/* Buttons &amp; Primary CTAs */</span>
+    <span class="text-primary-fixed">.stButton &gt; button, div.stFormSubmitButton &gt; button</span> {
+        <span class="text-tertiary-fixed">background</span>: <span class="text-tertiary-fixed-dim">linear-gradient(90deg, #F472B6 0%, #E879A0 100%) !important</span>;
+        <span class="text-tertiary-fixed">color</span>: <span class="text-tertiary-fixed-dim">#FFFFFF !important</span>;
+        <span class="text-tertiary-fixed">font-weight</span>: 600 !important;
+        <span class="text-tertiary-fixed">border-radius</span>: 9999px !important;
+        <span class="text-tertiary-fixed">border</span>: none !important;
+        <span class="text-tertiary-fixed">padding</span>: 0.65rem 1.75rem !important;
+        <span class="text-tertiary-fixed">box-shadow</span>: 0 4px 14px rgba(244, 114, 182, 0.35) !important;
+        <span class="text-tertiary-fixed">transition</span>: all 0.25s ease !important;
+    }
+    <span class="text-primary-fixed">.stButton &gt; button:hover, div.stFormSubmitButton &gt; button:hover</span> {
+        <span class="text-tertiary-fixed">transform</span>: translateY(-2px) !important;
+        <span class="text-tertiary-fixed">box-shadow</span>: 0 8px 22px rgba(244, 114, 182, 0.45) !important;
+    }
+    
+    <span class="text-outline-variant italic">/* Recommendation Card Containers */</span>
+    <span class="text-primary-fixed">.recommendation-card</span> {
+        <span class="text-tertiary-fixed">background-color</span>: <span class="text-tertiary-fixed-dim">#F7E9FF</span>;
+        <span class="text-tertiary-fixed">border-radius</span>: 20px;
+        <span class="text-tertiary-fixed">padding</span>: 1.5rem;
+        <span class="text-tertiary-fixed">box-shadow</span>: 0 4px 16px rgba(107, 92, 138, 0.06);
+        <span class="text-tertiary-fixed">margin-bottom</span>: 1.25rem;
+        <span class="text-tertiary-fixed">transition</span>: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    <span class="text-primary-fixed">.recommendation-card:hover</span> {
+        <span class="text-tertiary-fixed">transform</span>: translateY(-3px);
+        <span class="text-tertiary-fixed">box-shadow</span>: 0 12px 28px -4px rgba(107, 92, 138, 0.12);
+    }
+    
+    <span class="text-outline-variant italic">/* AI LLM Insight Pill / Info Box */</span>
+    <span class="text-primary-fixed">.stAlert[data-baseweb="notification"]</span> {
+        <span class="text-tertiary-fixed">background-color</span>: <span class="text-tertiary-fixed-dim">#F7E9FF !important</span>;
+        <span class="text-tertiary-fixed">border-left</span>: 6px solid #6B5C8A !important;
+        <span class="text-tertiary-fixed">border-radius</span>: 14px !important;
+        <span class="text-tertiary-fixed">box-shadow</span>: 0 2px 8px rgba(107, 92, 138, 0.05);
+    }
+    <span class="text-secondary-fixed">&lt;/style&gt;</span>
+    <span class="text-secondary-fixed">'''</span>, unsafe_allow_html=<span class="text-secondary-fixed-dim">True</span>)
+</code></pre>
+<!-- TOML View -->
+<pre class="hidden p-space-lg font-mono text-sm leading-relaxed overflow-x-auto text-on-primary-container max-h-[580px] scrollbar-none" id="view-toml"><code class="block"><span class="text-outline-variant italic"># .streamlit/config.toml</span>
+<span class="text-outline-variant italic"># Avant-Garde AI Restaurant Engine Configuration</span>
+
+[<span class="text-secondary-fixed-dim">theme</span>]
+<span class="text-tertiary-fixed">primaryColor</span> = <span class="text-tertiary-fixed-dim">"#F472B6"</span>                 <span class="text-outline-variant italic"># Vibrant Berry Rose Accent</span>
+<span class="text-tertiary-fixed">backgroundColor</span> = <span class="text-tertiary-fixed-dim">"#FFF7FF"</span>              <span class="text-outline-variant italic"># Ambient Lavender Base Surface</span>
+<span class="text-tertiary-fixed">secondaryBackgroundColor</span> = <span class="text-tertiary-fixed-dim">"#F7E9FF"</span>     <span class="text-outline-variant italic"># Tinted Card Container Plane</span>
+<span class="text-tertiary-fixed">textColor</span> = <span class="text-tertiary-fixed-dim">"#201828"</span>                    <span class="text-outline-variant italic"># Deep Obsidian Purple</span>
+<span class="text-tertiary-fixed">font</span> = <span class="text-tertiary-fixed-dim">"sans serif"</span>
+
+[<span class="text-secondary-fixed-dim">client</span>]
+<span class="text-tertiary-fixed">showErrorDetails</span> = <span class="text-secondary-fixed-dim">true</span>
+<span class="text-tertiary-fixed">toolbarMode</span> = <span class="text-tertiary-fixed-dim">"viewer"</span>
+
+[<span class="text-secondary-fixed-dim">server</span>]
+<span class="text-tertiary-fixed">headless</span> = <span class="text-secondary-fixed-dim">true</span>
+<span class="text-tertiary-fixed">port</span> = <span class="text-tertiary-fixed-dim">8501</span>
+<span class="text-tertiary-fixed">enableCORS</span> = <span class="text-secondary-fixed-dim">false</span>
+</code></pre>
+<!-- Raw CSS View -->
+<pre class="hidden p-space-lg font-mono text-sm leading-relaxed overflow-x-auto text-on-primary-container max-h-[580px] scrollbar-none" id="view-raw"><code class="block"><span class="text-secondary-fixed">@import</span> <span class="text-tertiary-fixed-dim">url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap')</span>;
+
+<span class="text-primary-fixed">:root</span> {
+  <span class="text-tertiary-fixed">--bg-canvas</span>: <span class="text-tertiary-fixed-dim">#FFF7FF</span>;
+  <span class="text-tertiary-fixed">--surface-container</span>: <span class="text-tertiary-fixed-dim">#F7E9FF</span>;
+  <span class="text-tertiary-fixed">--primary-accent</span>: <span class="text-tertiary-fixed-dim">#F472B6</span>;
+  <span class="text-tertiary-fixed">--brand-purple</span>: <span class="text-tertiary-fixed-dim">#6B5C8A</span>;
+  <span class="text-tertiary-fixed">--text-headline</span>: <span class="text-tertiary-fixed-dim">#201828</span>;
+}
+
+<span class="text-primary-fixed">.stSlider &gt; div &gt; div &gt; div &gt; div</span> {
+  <span class="text-tertiary-fixed">background</span>: <span class="text-tertiary-fixed-dim">linear-gradient(90deg, #6B5C8A, #F472B6) !important</span>;
+}
+
+<span class="text-primary-fixed">.stTextInput &gt; div &gt; div &gt; input:focus</span> {
+  <span class="text-tertiary-fixed">outline</span>: <span class="text-tertiary-fixed-dim">2px solid #F472B6 !important</span>;
+  <span class="text-tertiary-fixed">box-shadow</span>: <span class="text-tertiary-fixed-dim">0 0 16px rgba(244, 114, 182, 0.25) !important</span>;
+}
+</code></pre>
+</div>
+</div>
+<!-- Implementation Architecture Pipeline (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<div class="p-space-lg rounded-lg bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-lg">schema</span>
+<span class="font-label-lg text-label-lg uppercase tracking-wider">End-to-End Pipeline</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">LLM Inference &amp; UI Architecture</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            How user taste preferences flow from the Streamlit sidebar into Groq LPU inference, rendered with custom CSS.
+          </p>
+<!-- Stepper Diagram -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Step 1 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-md bg-surface-container-lowest shadow-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0 font-label-md text-label-md">01</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Sidebar Inputs</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cuisine matrix, ₹ budget dial, dietary chips via widgets</span>
+</div>
+</div>
+<!-- Arrow -->
+<div class="flex justify-center -my-1 text-primary">
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-md bg-surface-container-lowest shadow-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-secondary flex items-center justify-center shrink-0 font-label-md text-label-md">02</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Zomato HF Dataset Filter</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Polars/Pandas indexing extracts top 20 candidate venues</span>
+</div>
+</div>
+<!-- Arrow -->
+<div class="flex justify-center -my-1 text-secondary">
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-md bg-surface-container-lowest shadow-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center shrink-0 font-label-md text-label-md">03</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Groq Llama-3.3-70B LPUs</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">RAG prompt reasoning; sub-30ms sensory affinity scoring</span>
+</div>
+</div>
+<!-- Arrow -->
+<div class="flex justify-center -my-1 text-secondary">
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+</div>
+<!-- Step 4 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-md bg-secondary text-on-secondary shadow-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest text-secondary flex items-center justify-center shrink-0 font-label-md text-label-md">04</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-secondary">Custom Card Render</span>
+<span class="font-body-sm text-body-sm text-secondary-fixed">Injected <code class="font-mono text-xs">.recommendation-card</code> with live affinity pills</span>
+</div>
+</div>
+</div>
+<!-- Dataset Specs Pill -->
+<div class="mt-space-xs p-space-sm rounded-md bg-surface-container-high flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">HF: zomato-bengaluru-9k</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">9,412 Records</span>
+</div>
+</div>
+<!-- Diagnostic Spec Card -->
+<div class="p-space-lg rounded-lg bg-surface-container-low shadow-sm flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Fast Setup Checklist</span>
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-base text-secondary-container">check_circle</span>
+<span class="font-body-sm text-body-sm">Copy code into <code class="font-mono text-xs text-primary">app/custom_theme.py</code></span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-base text-secondary-container">check_circle</span>
+<span class="font-body-sm text-body-sm">Call <code class="font-mono text-xs text-primary">apply_custom_theme()</code> first line in main()</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-base text-secondary-container">check_circle</span>
+<span class="font-body-sm text-body-sm">Place <code class="font-mono text-xs text-primary">config.toml</code> in <code class="font-mono text-xs text-primary">.streamlit/</code></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Streamlit Component Style Guide & State Sandbox -->
+<div class="flex flex-col gap-space-lg pt-space-lg" id="sandbox-preview">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs text-secondary mb-space-xs">
+<span class="material-symbols-outlined text-lg">science</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest font-semibold">State Sandbox</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Streamlit Widget Previews Under Custom Theme</h2>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Real-time mock reflecting CSS declarations above</span>
+</div>
+<!-- Bento-style Preview Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Sandbox 1: Form & Inputs -->
+<div class="p-space-lg rounded-lg bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-mono font-semibold">st.text_input &amp; st.selectbox</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-lowest font-label-sm text-label-sm text-on-surface-variant">Inputs</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<label class="font-label-md text-label-md text-on-surface">Taste or Craving Query</label>
+<div class="relative">
+<input class="w-full px-space-md py-space-sm rounded-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm outline-none shadow-sm focus:ring-2 focus:ring-secondary-container transition-all pr-10" type="text" value="Authentic Hyderabadi Biryani with mild spice"/>
+<span class="material-symbols-outlined absolute right-3.5 top-2.5 text-base text-primary">search</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm">
+<label class="font-label-md text-label-md text-on-surface">Cuisine Filter</label>
+<div class="relative">
+<select class="w-full px-space-md py-space-sm rounded-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm outline-none shadow-sm appearance-none cursor-pointer focus:ring-2 focus:ring-secondary-container">
+<option>Mughlai &amp; North Indian</option>
+<option>South Indian Chettinad</option>
+<option>Continental Bistro</option>
+<option>Pan-Asian &amp; Dim Sum</option>
+</select>
+<span class="material-symbols-outlined absolute right-3.5 top-2.5 text-base text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Primary Submit Button -->
+<div class="pt-space-xs">
+<button class="w-full py-space-sm rounded-full bg-gradient-to-r from-secondary-container to-secondary text-on-secondary font-label-lg text-label-lg shadow-md hover:shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-base">magic_button</span>
+<span>Find Recommendations (st.button)</span>
+</button>
+</div>
+</div>
+<!-- Sandbox 2: Sliders & Controls -->
+<div class="p-space-lg rounded-lg bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-mono font-semibold">st.slider &amp; st.multiselect</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-lowest font-label-sm text-label-sm text-on-surface-variant">Controls</span>
+</div>
+<!-- Slider Widget Mock -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface">Cost for Two (₹)</label>
+<span class="font-label-md text-label-md font-mono text-secondary font-bold">₹800 - ₹1,400</span>
+</div>
+<div class="relative py-space-sm">
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary-container rounded-full ml-1/4 w-1/2"></div>
+</div>
+<!-- Thumb mock -->
+<div class="absolute left-1/4 top-1.5 w-4 h-4 rounded-full bg-surface-container-lowest shadow-md -translate-x-2"></div>
+<div class="absolute left-3/4 top-1.5 w-4 h-4 rounded-full bg-secondary shadow-md -translate-x-2"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>₹200</span>
+<span>₹2,500+</span>
+</div>
+</div>
+<!-- Multiselect Mock -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Vibe &amp; Amenities</label>
+<div class="flex flex-wrap gap-space-xs p-space-xs rounded-lg bg-surface-container-lowest shadow-sm">
+<span class="px-space-sm py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-1">
+                Outdoor Seating <span class="material-symbols-outlined text-xs cursor-pointer">close</span>
+</span>
+<span class="px-space-sm py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-1">
+                Pet Friendly <span class="material-symbols-outlined text-xs cursor-pointer">close</span>
+</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                + Add More
+              </span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-md bg-surface-container-lowest">
+<span class="font-body-sm text-body-sm text-on-surface">Only High Zomato Ratings (4.2+)</span>
+<input checked="" class="w-4 h-4 rounded accent-secondary cursor-pointer" type="checkbox"/>
+</div>
+</div>
+<!-- Sandbox 3: Streamlit Alerts / Notifications -->
+<div class="p-space-lg rounded-lg bg-surface-container shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-mono font-semibold">st.info, warning, error, spinner</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-lowest font-label-sm text-label-sm text-on-surface-variant">Feedback</span>
+</div>
+<!-- st.info -->
+<div class="p-space-sm rounded-md bg-surface-container-low shadow-sm flex items-start gap-space-sm border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">psychology</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary font-bold">st.info() • Groq AI Reasoning</span>
+<span class="font-body-sm text-body-sm text-on-surface">Matched 3 venues emphasizing slow-cooked Dum preparation.</span>
+</div>
+</div>
+<!-- st.warning -->
+<div class="p-space-sm rounded-md bg-surface-container-low shadow-sm flex items-start gap-space-sm border-l-4 border-secondary-container">
+<span class="material-symbols-outlined text-secondary text-base mt-0.5">warning</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-bold">st.warning()</span>
+<span class="font-body-sm text-body-sm text-on-surface">Narrow filter: Only 2 venues match &lt; ₹400 for two in Indiranagar.</span>
+</div>
+</div>
+<!-- st.error -->
+<div class="p-space-sm rounded-md bg-error-container shadow-sm flex items-start gap-space-sm border-l-4 border-error">
+<span class="material-symbols-outlined text-error text-base mt-0.5">report_problem</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-error font-bold">st.error()</span>
+<span class="font-body-sm text-body-sm text-on-error-container">Groq API Rate Limit: Switched to cached local embedding.</span>
+</div>
+</div>
+<!-- st.spinner mock -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-md bg-surface-container-lowest shadow-sm">
+<div class="w-4 h-4 rounded-full border-2 border-primary border-t-transparent animate-spin shrink-0"></div>
+<span class="font-body-sm text-body-sm text-primary">st.spinner: Synthesizing top picks with Groq...</span>
+</div>
+</div>
+</div>
+<!-- Live Rendered Result Card (What st.markdown produces) -->
+<div class="p-space-lg rounded-lg bg-surface-container shadow-sm flex flex-col gap-space-md mt-space-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-secondary font-mono">.recommendation-card</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Result Card Render Sample</span>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-secondary-fixed text-secondary font-label-sm text-label-sm font-semibold">98.4% AI Match Score</span>
+</div>
+<div class="p-space-lg rounded-lg bg-surface-container-lowest shadow-sm flex flex-col md:flex-row gap-space-lg items-center">
+<div class="w-full md:w-48 h-32 rounded-lg bg-surface-container-high overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="An artisanal North Indian gourmet dish of royal Lucknowi biryani presented in an ornate clay pot, garnished with saffron strands, silver foil, and roasted cashews, soft lavender atmospheric lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZsjn9ZwYh_deB7zvexYK4EMsKEJUZVHFcqrU4naIGNiW_tCicSDkKljUFcY8uXDbL-6WUoOJ39zYfHUQ0Bk3f-J55O-5DJEXLpkKZgU6Wllq2rVblt0ilq0mq3uHNLYo9Yxpo4nm39aFqMCuH9Sb4yYfLwRCqkuFJF_ltMNmq4rX8QmyYTaO87xJ0C5QBCwc4EetPK9zcrCShSQU3ljgM6Weegl-p5m2JerD4yVW9wEgpS0z2Rp4"/>
+<div class="absolute top-2 left-2 px-space-xs py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-label-sm text-on-surface">Zomato 4.8 ★</div>
+</div>
+<div class="flex flex-col flex-1 gap-space-xs">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Meghana Foods • Koramangala</h3>
+<span class="font-label-md text-label-md text-primary font-semibold">₹650 for two</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Biryani, Andhra, North Indian • 2.4 km away
+            </p>
+<div class="p-space-sm rounded-md bg-surface-container-low text-on-surface font-body-sm text-body-sm flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-sm shrink-0 mt-0.5">auto_awesome</span>
+<span><strong>Groq Reasoning:</strong> Selected for its authentic spicy Andhra-style gravy layer matching your craving for fragrant basmati rice dishes.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function switchTab(type) {
+    const pyView = document.getElementById('view-py');
+    const tomlView = document.getElementById('view-toml');
+    const rawView = document.getElementById('view-raw');
+    const filenameLabel = document.getElementById('active-filename');
+
+    const btnPy = document.getElementById('tab-btn-py');
+    const btnToml = document.getElementById('tab-btn-toml');
+    const btnRaw = document.getElementById('tab-btn-raw');
+
+    // Reset buttons
+    [btnPy, btnToml, btnRaw].forEach(b => {
+      b.className = "px-space-md py-1.5 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-200 flex items-center gap-space-xs";
+    });
+
+    // Reset views
+    pyView.classList.add('hidden');
+    tomlView.classList.add('hidden');
+    rawView.classList.add('hidden');
+
+    if (type === 'py') {
+      pyView.classList.remove('hidden');
+      filenameLabel.textContent = 'app/theme/custom_theme.py';
+      btnPy.className = "px-space-md py-1.5 rounded-full font-label-lg text-label-lg bg-surface-container-lowest text-primary shadow-sm transition-all duration-200 flex items-center gap-space-xs";
+    } else if (type === 'toml') {
+      tomlView.classList.remove('hidden');
+      filenameLabel.textContent = '.streamlit/config.toml';
+      btnToml.className = "px-space-md py-1.5 rounded-full font-label-lg text-label-lg bg-surface-container-lowest text-primary shadow-sm transition-all duration-200 flex items-center gap-space-xs";
+    } else if (type === 'raw') {
+      rawView.classList.remove('hidden');
+      filenameLabel.textContent = 'static/styles/theme.css';
+      btnRaw.className = "px-space-md py-1.5 rounded-full font-label-lg text-label-lg bg-surface-container-lowest text-primary shadow-sm transition-all duration-200 flex items-center gap-space-xs";
+    }
+  }
+
+  function copyFullTheme() {
+    const fullPy = `import streamlit as st
+
+def apply_custom_theme():
+    st.markdown('''
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    html, body, [class*="css"] {
+        font-family: 'Poppins', sans-serif;
+        color: #201828;
+        background-color: #FFF7FF;
+    }
+    
+    .main-header {
+        background: linear-gradient(135deg, #F3EFFE 0%, #FDE7F3 100%);
+        padding: 1.75rem 2rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px -2px rgba(107, 92, 138, 0.08);
+        margin-bottom: 2rem;
+    }
+    
+    .stButton > button, div.stFormSubmitButton > button {
+        background: linear-gradient(90deg, #F472B6 0%, #E879A0 100%) !important;
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        border-radius: 9999px !important;
+        border: none !important;
+        padding: 0.65rem 1.75rem !important;
+        box-shadow: 0 4px 14px rgba(244, 114, 182, 0.35) !important;
+        transition: all 0.25s ease !important;
+    }
+    .stButton > button:hover, div.stFormSubmitButton > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 22px rgba(244, 114, 182, 0.45) !important;
+    }
+    
+    .recommendation-card {
+        background-color: #F7E9FF;
+        border-radius: 20px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 16px rgba(107, 92, 138, 0.06);
+        margin-bottom: 1.25rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .recommendation-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px -4px rgba(107, 92, 138, 0.12);
+    }
+    
+    .stAlert[data-baseweb="notification"] {
+        background-color: #F7E9FF !important;
+        border-left: 6px solid #6B5C8A !important;
+        border-radius: 14px !important;
+        box-shadow: 0 2px 8px rgba(107, 92, 138, 0.05);
+    }
+    </style>
+    ''', unsafe_allow_html=True)
+`;
+    navigator.clipboard.writeText(fullPy).then(() => {
+      const label = document.getElementById('copy-btn-label');
+      label.textContent = 'Copied to Clipboard!';
+      setTimeout(() => {
+        label.textContent = 'Copy Full custom_theme.py';
+      }, 2500);
+    });
+  }
+
+  function copyCurrentTabCode() {
+    let activeText = '';
+    const py = document.getElementById('view-py');
+    const toml = document.getElementById('view-toml');
+    const raw = document.getElementById('view-raw');
+
+    if (!py.classList.contains('hidden')) {
+      activeText = py.innerText;
+    } else if (!toml.classList.contains('hidden')) {
+      activeText = toml.innerText;
+    } else {
+      activeText = raw.innerText;
+    }
+
+    navigator.clipboard.writeText(activeText).then(() => {
+      const status = document.getElementById('tab-copy-status');
+      status.textContent = 'Copied!';
+      setTimeout(() => {
+        status.textContent = 'Copy Code';
+      }, 2000);
+    });
+  }
+</script></main><footer class="w-full bg-surface-container-low shadow-[0_-1px_10px_rgba(107,92,138,0.04)]"><div class="h-12 w-full px-margin flex items-center justify-center"><p class="font-label-sm text-label-sm text-on-surface-variant text-center">Built with ❤️ using Streamlit + Groq + Zomato Data • v2.4.0</p></div></footer></body></html>
